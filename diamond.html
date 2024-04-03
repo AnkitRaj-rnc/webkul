@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond</title>
+    <style>
+      body {
+        /* color: red; */
+        font-size: 40px;
+        line-height: 40px;
+      }
+      .right-upper-half {
+        color: blue;
+      }
+      .left-upper-half {
+        color: red;
+      }
+      .left-lower-half {
+        color: orange;
+      }
+      .right-lower-half {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="diamond"></div>
+    <div id="lowerDiamond"></div>
+
+    <script>
+      // designed number of row
+      let n = 9;
+
+      // function to create upper half of diamond pattern
+      const diamond = (n) => {
+        let i, j, k, l;
+        let diamondPattern = "";
+        // fetching number create desired row
+        n = n / 2 + 1;
+
+        // looping over given number to create desired row
+        for (i = 1; i <= n; i++) {
+          // looping over given number to create desired blank spaces
+          // used n- 1 so it add more space at starting and deceases and row increases
+          // rg first row its add 4 space i.e n-1 (5-1)
+          // used HTML entities for space
+          for (k = 1; k <= n - i; k++) {
+            diamondPattern += "&nbsp;&nbsp";
+          }
+          // adding asterisk sign for left upper side
+          for (j = 1; j <= i; j++) {
+            diamondPattern += "<span class='left-upper-half'>*</span>";
+          }
+
+          // adding asterisk sign  for right upper side
+          for (l = 1; l <= i - 1; l++) {
+            diamondPattern += "<span class='right-upper-half'>*</span>";
+          }
+
+          //lie -break
+          diamondPattern += "<br/>";
+        }
+        document.getElementById("diamond").innerHTML = diamondPattern;
+      };
+      diamond(n);
+
+      // function to create lower half of diamond pattern
+      const lowerDiamond = (n) => {
+        let i, j, k, l;
+        let lowerDiamondPattern = " ";
+
+        // fetching number create desired row
+        n = n / 2 + 1;
+
+        // looping over given number to create desired row
+        for (i = n - 1; i >= 1; i--) {
+          // looping over given number to create desired blank spaces
+          // used n- 1 so it add more space at starting and deceases and row increases
+          // rg first row its add 4 space i.e n-1 (5-1)
+          // used HTML entities for space
+          for (k = 1; k <= n - i; k++) {
+            lowerDiamondPattern += "&nbsp;&nbsp";
+          }
+
+          // adding asterisk sign for left lower side
+          for (j = 1; j <= i; j++) {
+            lowerDiamondPattern += "<span class='left-lower-half'>*</span>";
+          }
+
+          // adding asterisk sign for right lower side
+          for (l = 1; l <= i - 1; l++) {
+            lowerDiamondPattern += "<span class='right-lower-half'>*</span>";
+          }
+          //lie -break
+          lowerDiamondPattern += "<br/>";
+        }
+        // added the created string "pattern" to show it in document.
+        document.getElementById("lowerDiamond").innerHTML = lowerDiamondPattern;
+      };
+
+      //  function called
+      lowerDiamond(n);
+    </script>
+  </body>
+</html>

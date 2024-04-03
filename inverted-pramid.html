@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inverted pyramid</title>
+    <style>
+      body {
+        color: red;
+        font-size: 60px;
+        line-height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inverted-pyramid"></div>
+    <div style="color: black; margin-top: 20px">Second Approach</div>
+    <div id="i-pyramid"></div>
+
+    <script>
+      //FIRST APPROACH
+      // designed number of row
+      const n = 5;
+
+      // function to create inverted pyramid pattern
+      const invertedPyramid = (n) => {
+        let i;
+        let pattern = " ";
+        // looping over given number to create desired row
+        // stated i = n because i want to literate in decreasing order
+        for (i = n; i >= 1; i--) {
+          // used repeat function to add space and asterisk
+          // ( n-1 ) for space because we want no. of spaces in increasing order
+          // i for asterisk because we want no. of asterisk same as the loop
+          // did not used repeat for (<br>) because we are just changing lines
+          pattern += "&nbsp".repeat(n - i);
+          pattern += "*".repeat(i);
+          pattern += "<br>";
+        }
+        // added the created string "pattern" to show it in document.
+        document.getElementById("inverted-pyramid").innerHTML = pattern;
+      };
+
+      //  function called
+      invertedPyramid(n);
+
+      // SECOND APPROACH
+
+      const iPyramid = (n) => {
+        let i, j, k;
+        let pattern = " ";
+
+        // looping over given number to create desired row
+        // stated i = n because i want to literate in decreasing order
+        for (i = n; i >= 1; i--) {
+          for (k = 1; k <= n - i; k++) {
+            pattern += "&nbsp";
+          }
+
+          //added to get asterisk sign to create pattern
+          for (j = 1; j <= i; j++) {
+            pattern += "*";
+          }
+
+          // adding html add for breaking line to create the pattern
+          pattern += "<br>";
+        }
+
+        // added the created string "pattern" to show it in document.
+        document.getElementById("i-pyramid").innerHTML = pattern;
+      };
+
+      iPyramid(n);
+    </script>
+  </body>
+</html>

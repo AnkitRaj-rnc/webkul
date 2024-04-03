@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hollow Diamond</title>
+    <style>
+      body {
+        color: red;
+        font-size: 60px;
+        line-height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="diamond"></div>
+
+    <script>
+      // designed number of row
+      const n = 5;
+
+      // function to create hollow diamond pattern
+      const hollowDiamond = (n) => {
+        // math.floor to get the middle row
+        const middle = Math.floor(n / 2);
+
+        // looping over given number to create desired row
+        for (i = 0; i < n; i++) {
+          let pattern = "";
+
+          // looping to create hollow pattern based on condition
+          for (j = 0; j < n; j++) {
+            // condition to add asterisk sign if not fulfilled space in added
+            // used HTML entities for space
+            //the first condition is fulfilled so row is added
+            if (
+              j === middle - i ||
+              j === middle + i ||
+              j === i - middle ||
+              j === middle * 3 - i
+            ) {
+              pattern += "*";
+            } else {
+              pattern += "&nbsp";
+            }
+          }
+          // added the created string "pattern" to show it in document.
+          document.write(pattern + "<br>");
+        }
+      };
+      //  function called
+      hollowDiamond(n);
+    </script>
+  </body>
+</html>

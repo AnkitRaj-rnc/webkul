@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyramid</title>
+    <style>
+      body {
+        color: red;
+        font-size: 60px;
+        line-height: 60px;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pyramid"></div>
+    <div style="color: black; margin-top: 20px">Second Approach</div>
+
+    <div id="pyramid-second" class="center"></div>
+
+    <script>
+      // FIRST APPROACH
+      // designed number of row
+      const n = 7;
+
+      // function to create pyramid pattern
+      const pyramid = (n) => {
+        // variable pattern
+        let pattern = "";
+
+        // looping over given number to create desired row
+        for (i = 1; i <= n; i++) {
+          // looping over given number to create desired blank spaces
+          // used n- 1 so it add more space at starting and deceases and row increases
+          // rg first row its add 4 space i.e n-1 (5-1)
+          // used HTML entities for space
+          for (k = 1; k <= n - i; k++) {
+            pattern += "&nbsp";
+          }
+
+          // looping over given number to create desired asterisk
+          // used i so it add asterisk as the loop increases
+          // so it first row it add 4 space and 1 asterisk and so on
+          for (j = 1; j <= i; j++) {
+            pattern += "*";
+          }
+
+          // adding html add for breaking line to create the pattern
+          pattern += "<br>";
+        }
+
+        // added the created string "pattern" to show it in document.
+        document.getElementById("pyramid").innerHTML = pattern;
+      };
+
+      //  function called
+      pyramid(n);
+
+      // SECOND APPROACH
+      // function to create pyramid pattern
+      const pyramidSecondApproach = (n) => {
+        // variable pattern
+        let pattern = "";
+
+        // looping over given number to create desired row
+        for (i = 1; i <= n; i++) {
+          // looping over given number to create desired blank spaces
+          // used n- 1 so it add more space at starting and deceases and row increases
+          // rg first row its add 4 space i.e n-1 (5-1)
+          // used HTML entities for space
+          // for (k = 1; k <= n - i; k++) {
+          //   pattern += "&nbsp";
+          // }
+
+          // looping over given number to create desired asterisk
+          // used i so it add asterisk as the loop increases
+          // so it first row it add 4 space and 1 asterisk and so on
+          for (j = 1; j <= i; j++) {
+            pattern += "*";
+          }
+
+          // adding html add for breaking line to create the pattern
+          pattern += "<br>";
+        }
+
+        // added the created string "pattern" to show it in document.
+        document.getElementById("pyramid-second").innerHTML = pattern;
+      };
+
+      //  function called
+      pyramidSecondApproach(n);
+    </script>
+  </body>
+</html>
